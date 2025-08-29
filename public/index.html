@@ -30,6 +30,11 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <title>React App</title>
   </head>
   <body>
