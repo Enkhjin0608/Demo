@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CustomContainer from './components/CustomContainer';
 import CustomInput from './components/CustomInput';
 import NumberButton from './components/NumberButton';
+import ThemeButton from './components/ThemeButton';
 
 function App() {
   const [input, setInput] = useState('');
@@ -32,15 +33,23 @@ function App() {
   };
 
   return (
-    <CustomContainer>
-      <CustomInput value={input} />
-      <div className="grid grid-cols-4 gap-2">
-        {buttons.map((btn) => (
-          <NumberButton key={btn} onClick={() => onButtonClick(btn)}>{btn}</NumberButton>
-        ))}
-        <NumberButton onClick={handleClear} className="col-span-4 bg-[#fdd9a0] hover:bg-[#fccb8f]">Clear</NumberButton>
-      </div>
-    </CustomContainer>
+    <>
+      <CustomContainer>
+        <CustomInput value={input} />
+        <div className="grid grid-cols-4 gap-2">
+          {buttons.map((btn) => (
+            <NumberButton key={btn} onClick={() => onButtonClick(btn)}>{btn}</NumberButton>
+          ))}
+          <NumberButton
+            onClick={handleClear}
+            className="col-span-4 bg-[#fdd9a0] hover:bg-[#fccb8f] dark:bg-red-600 dark:hover:bg-red-500"
+          >
+            Clear
+          </NumberButton>
+        </div>
+      </CustomContainer>
+      <ThemeButton />
+    </>
   );
 }
 
